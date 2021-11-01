@@ -216,7 +216,7 @@ Inject to front, back, and both front and back of URL path; with and without pre
 			"Host: localhost"
 		],
 		"agent": null,
-		"command": "curl -w 'Forbidden-CL: %{size_download}' -m 5 --connect-timeout 5 -i -s -k -L --path-as-is -H 'Host: localhost' -X 'GET' 'https://example.com/admin'",
+		"command": "curl -w '\n\nFBD-CL: %{size_download}' -m 5 --connect-timeout 5 -i -s -k -L --path-as-is -H 'Host: localhost' -X 'GET' 'https://example.com/admin'",
 		"code": 302,
 		"length": 142
 	},
@@ -228,7 +228,7 @@ Inject to front, back, and both front and back of URL path; with and without pre
 			"Host: localhost:80"
 		],
 		"agent": null,
-		"command": "curl -w 'Forbidden-CL: %{size_download}' -m 5 --connect-timeout 5 -i -s -k -L --path-as-is -H 'Host: localhost:80' -X 'GET' 'https://example.com/admin'",
+		"command": "curl -w '\n\nFBD-CL: %{size_download}' -m 5 --connect-timeout 5 -i -s -k -L --path-as-is -H 'Host: localhost:80' -X 'GET' 'https://example.com/admin'",
 		"code": 302,
 		"length": 142
 	},
@@ -240,7 +240,7 @@ Inject to front, back, and both front and back of URL path; with and without pre
 			"Host: 127.0.0.1"
 		],
 		"agent": null,
-		"command": "curl -w 'Forbidden-CL: %{size_download}' -m 5 --connect-timeout 5 -i -s -k -L --path-as-is -H 'Host: 127.0.0.1' -X 'GET' 'https://example.com/admin'",
+		"command": "curl -w '\n\nFBD-CL: %{size_download}' -m 5 --connect-timeout 5 -i -s -k -L --path-as-is -H 'Host: 127.0.0.1' -X 'GET' 'https://example.com/admin'",
 		"code": 302,
 		"length": 142
 	},
@@ -252,7 +252,7 @@ Inject to front, back, and both front and back of URL path; with and without pre
 			"Host: 127.0.0.1:80"
 		],
 		"agent": null,
-		"command": "curl -w 'Forbidden-CL: %{size_download}' -m 5 --connect-timeout 5 -i -s -k -L --path-as-is -H 'Host: 127.0.0.1:80' -X 'GET' 'https://example.com/admin'",
+		"command": "curl -w '\n\nFBD-CL: %{size_download}' -m 5 --connect-timeout 5 -i -s -k -L --path-as-is -H 'Host: 127.0.0.1:80' -X 'GET' 'https://example.com/admin'",
 		"code": 302,
 		"length": 142
 	}
