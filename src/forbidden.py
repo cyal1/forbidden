@@ -18,7 +18,7 @@ start = datetime.datetime.now()
 def basic():
 	global proceed
 	proceed = False
-	print("Forbidden v4.1 ( github.com/ivan-sincek/forbidden )")
+	print("Forbidden v4.2 ( github.com/ivan-sincek/forbidden )")
 	print("")
 	print("Usage:   python3 forbidden.py -u url                       -t tests [-f force] [-v values    ] [-s safe            ] [-e encode] [-a agent      ] [-o out         ]")
 	print("Example: python3 forbidden.py -u https://example.com/admin -t all   [-f GET  ] [-v values.txt] [-s /home/index.html] [-e all   ] [-a curl/3.30.1] [-o results.json]")
@@ -702,7 +702,7 @@ def get_commands(collection):
 	for record in collection:
 		# NOTE: You can intercept requests with your local proxy by adding "--proxy 127.0.0.1:8080".
 		# TO DO: Add proxy as an option.
-		curl = ["curl", "-w '\n\nFBD-CL: %{size_download}'", "-m 5", "--connect-timeout 5", "-i", "-s", "-k", "-L", "--path-as-is"]
+		curl = ["curl", "-w 'FBD-CL:%{size_download}'", "-m 5", "--connect-timeout 5", "-i", "-s", "-k", "-L", "--path-as-is"]
 		if record["command"]:
 			curl.extend(record["command"])
 		if record["headers"]:
@@ -718,7 +718,7 @@ def get_commands(collection):
 def run(record):
 	response = subprocess.run(record["command"], stdout = subprocess.PIPE, shell = True).stdout.decode("UTF-8")
 	if response:
-		array = re.findall(r"(?<=FBD\-CL\:\ )\d+", response, re.IGNORECASE)
+		array = re.findall(r"(?<=FBD\-CL\:)\d+", response, re.IGNORECASE)
 		if array and array[0].isdigit():
 			record["length"] = int(array[0])
 		array = response.split("\r\n", 1)[0].split(" ")
@@ -776,7 +776,7 @@ def bypass(collection, out = None):
 if proceed:
 	print("######################################################################")
 	print("#                                                                    #")
-	print("#                           Forbidden v4.1                           #")
+	print("#                           Forbidden v4.2                           #")
 	print("#                                by Ivan Sincek                      #")
 	print("#                                                                    #")
 	print("# Bypass 4xx HTTP response status codes.                             #")
